@@ -2,6 +2,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 from subprocess import STDOUT, Popen
 from pathlib import Path
 from datetime import datetime
+import socket
 
 base_path = Path(__file__).parent.parent
 
@@ -30,8 +31,11 @@ class BuildWebhook(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(fname.encode())
 
+class IPV6HTTPServer(HTTPServer):
+    address_family = socket.AF_INET6
+
 if __name__ == "__main__":
-    server = HTTPServer(("0.0.0.0", 9090), BuildWebhook)
+    server = IPV6HTTPServer(("::", 9090), BuildWebhook)
     print("Server starting...")
     print(base_path)
 
