@@ -14,7 +14,7 @@ sass:
 baseurl: ""
 
 # the base hostname & protocol for your site
-url: "http://localhost:4000"
+url: "https://troop27manchester.org"
 
 exclude:
  - strapi
@@ -34,7 +34,7 @@ plugins:
   - jekyll-strapi-4
 
 strapi:
-  endpoint: http://localhost:8080
+  endpoint: https://troop-website-production.up.railway.app
   collections:
     troop-leaders:
       single_request: true
