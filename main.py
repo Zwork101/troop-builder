@@ -8,14 +8,14 @@ base_path = Path(__file__).parent.parent
 
 def build_site():
     try:
-        jekyll = Popen(["bundle", "exec", "jekyll", "build", "--trace"], stdout=out, stderr=STDOUT, cwd=base_path, shell=True)
+        jekyll = Popen(["bundle", "exec", "jekyll", "build", "--trace"], stdout=STDOUT, stderr=STDOUT, cwd=base_path, shell=True)
         jekyll.wait(180)
     except TimeoutError:
-        return False, 412, out.name
+        return False, 412, "Check Logs"
 
     if jekyll.returncode != 0:
-        return False, 503, out.name
-    return True, 201, out.name
+        return False, 503, "Check Logs"
+    return True, 201, "Check Logs"
 
 class BuildWebhook(BaseHTTPRequestHandler):
     def do_POST(self):
@@ -29,7 +29,6 @@ class BuildWebhook(BaseHTTPRequestHandler):
             print(f"Build failed. {code}")
 
         self.end_headers()
-        self.wfile.write(fname.encode())
 
 class IPV6HTTPServer(HTTPServer):
     address_family = socket.AF_INET6
