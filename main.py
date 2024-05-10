@@ -4,11 +4,9 @@ from pathlib import Path
 from datetime import datetime
 import socket
 
-base_path = Path(__file__).parent.parent
-
 def build_site():
     try:
-        jekyll = Popen(["bundle", "exec", "jekyll", "build", "--trace"], stdout=STDOUT, stderr=STDOUT, cwd=base_path, shell=True)
+        jekyll = Popen(["bundle", "exec", "jekyll", "build", "--trace"], stdout=STDOUT, stderr=STDOUT, shell=True)
         jekyll.wait(180)
     except TimeoutError:
         return False, 412, "Check Logs"
