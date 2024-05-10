@@ -34,7 +34,6 @@ class IPV6HTTPServer(HTTPServer):
 if __name__ == "__main__":
     server = IPV6HTTPServer(("::", 9090), BuildWebhook)
     print("Server starting...")
-    print(base_path)
 
     try:
         server.serve_forever()
