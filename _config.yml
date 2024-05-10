@@ -17,9 +17,11 @@ baseurl: ""
 url: "https://troop27manchester.org"
 
 exclude:
- - strapi
  - _tmp_assets
- - webhook
+ - server.py
+ - railway.json
+ - Troop Website.code-workspace
+ - README.md
 
 ####################################
 ######   Optional Features    ######
