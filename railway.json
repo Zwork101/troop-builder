@@ -9,7 +9,7 @@
                     "nixPkgs": ["...", "ruby", "awscli2"]
                 },
                 "install": {
-                    "cmds": ["bundle install", "gem uninstall ffi", "gem install ffi --platform=ruby"]
+                    "cmds": ["bundle install", "gem uninstall --ignore-dependencies ffi -a", "gem install ffi --platform=ruby"]
                 }
             }
         }
