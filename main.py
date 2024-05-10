@@ -8,6 +8,10 @@ def build_site():
     try:
         jekyll = Popen(["bundle exec jekyll build --trace"], shell=True)
         jekyll.wait(180)
+        aws_cmds = Popen(["aws s3 sync _site/ s3://troop-website/ --delete"], shell=True)
+        aws_cmds.wait(60)
+        aws_cmds = Popen(["aws cloudfront create-invalidation --distribution-id=E2G8PJQQYCCCA6 --paths /"], shell=True)
+        aws_cmds.wait(60)
     except TimeoutError:
         return False, 412, "Check Logs"
 
