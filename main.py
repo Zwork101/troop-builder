@@ -6,16 +6,15 @@ from datetime import datetime
 base_path = Path(__file__).parent.parent
 
 def build_site():
-    with open(base_path.joinpath(f"builds/{datetime.now().strftime('%Y%m%d-%H%M%S')}.log"), "w") as out:
-        try:
-            jekyll = Popen(["bundle", "exec", "jekyll", "build", "--trace"], stdout=out, stderr=STDOUT, cwd=base_path, shell=True)
-            jekyll.wait(180)
-        except TimeoutError:
-            return False, 412, out.name
+    try:
+        jekyll = Popen(["bundle", "exec", "jekyll", "build", "--trace"], stdout=out, stderr=STDOUT, cwd=base_path, shell=True)
+        jekyll.wait(180)
+    except TimeoutError:
+        return False, 412, out.name
 
-        if jekyll.returncode != 0:
-            return False, 503, out.name
-        return True, 201, out.name
+    if jekyll.returncode != 0:
+        return False, 503, out.name
+    return True, 201, out.name
 
 class BuildWebhook(BaseHTTPRequestHandler):
     def do_POST(self):
