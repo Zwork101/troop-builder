@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem "json", "2.0.2"
+
 gem "jekyll"
 
 group :jekyll_plugins do
