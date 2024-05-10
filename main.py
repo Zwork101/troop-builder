@@ -1,12 +1,12 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
-from subprocess import STDOUT, Popen
+from subprocess import STDOUT, Popen, PIPE
 from pathlib import Path
 from datetime import datetime
 import socket
 
 def build_site():
     try:
-        jekyll = Popen(["bundle", "exec", "jekyll", "build", "--trace"], stdout=STDOUT, stderr=STDOUT, shell=True)
+        jekyll = Popen(["bundle exec jekyll build --trace"], shell=True)
         jekyll.wait(180)
     except TimeoutError:
         return False, 412, "Check Logs"
