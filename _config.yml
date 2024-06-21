@@ -36,7 +36,7 @@ plugins:
   - jekyll-strapi-4
 
 strapi:
-  endpoint: https://troop-website-production.up.railway.app/
+  endpoint: https://troop-website-production.up.railway.app
   collections:
     troop-leaders:
       single_request: true
