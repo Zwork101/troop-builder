@@ -9,6 +9,16 @@
 section.contact-section {
   color: $light-blue;
 
+  .icon-wrap {
+    font-size: 40px;
+    margin-top: 20px;
+
+    i {
+      color: $white;
+      text-decoration: none;
+    }
+  }
+
   // Section Header
   header.section-header {
     h2, h3, h4 {
