@@ -22,6 +22,7 @@ exclude:
  - railway.json
  - Troop Website.code-workspace
  - README.md
+ - main.py
 
 ####################################
 ######   Optional Features    ######
