@@ -133,6 +133,8 @@ header.site-header {
       transform: translateY(-60%);
 
       .heading-title {
+        text-shadow: -2px -2px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+
         hr.small {
           margin-top: 40px;
           margin-bottom: 40px;
