@@ -6,7 +6,7 @@
             "providers": ["python"],
             "phases": {
                 "setup": {
-                    "nixPkgs": ["...", "ruby", "awscli2"]
+                    "nixPkgs": ["...", "ruby_3_2", "awscli2"]
                 },
                 "install": {
                     "cmds": ["bundle install"]
